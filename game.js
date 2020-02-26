@@ -52,7 +52,6 @@ class playGame extends Phaser.Scene{
       frameWidth: 128,
       frameHeight: 128
     });
-    this.load.image("jay", "Art/Jay.png");
   }
   
   create() {
