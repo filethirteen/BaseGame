@@ -136,7 +136,7 @@ class playGame extends Phaser.Scene{
 
   releaseHero(e) {
     if (this.canSummonHero) {
-      this.canSummonHero = false;
+      //this.canSummonHero = false;
       let item = this.matter.add.image(e.x, -200, "items");
       item.setCircle();
       item.setBounce(1);
