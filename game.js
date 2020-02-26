@@ -52,10 +52,13 @@ class playGame extends Phaser.Scene{
       frameWidth: 128,
       frameHeight: 128
     });
-    this.load.image("jay", "Art/Jay.png");
   }
+    
+    var input;
+    var cursor;
   
   create() {
+    this.input=this.input;
     this.canSummonHero = true;
     this.matter.world.update30Hz();
     this.matter.world.setBounds(0, -400, game.config.width, game.config.height + 800);
@@ -94,6 +97,8 @@ class playGame extends Phaser.Scene{
     }, this);
   }
   
+    
+    
   createLevel() {
     this.gameItems = this.add.group();
     let spawnRectangle = new Phaser.Geom.Rectangle(80, 250, game.config.width - 160, game.config.height - 350);
@@ -123,6 +128,9 @@ class playGame extends Phaser.Scene{
         }
       }
     }
+      cursor = this.matter.add.image(0, 0, "items");
+      item.setCircle();
+      item.body.label = HERO;
   }
   
   itemsOverlap(p) {
@@ -139,10 +147,13 @@ class playGame extends Phaser.Scene{
     if (this.canSummonHero) {
       this.canSummonHero = false;
       let item = this.matter.add.image(e.x, -200, "items");
-      //let item = this.matter.add.image(e.x, -200, "jay")
       item.setCircle();
       item.setBounce(1);
       item.body.label = HERO;
     }
   }
+    
+    update(){
+      this.physics.moveTo(cursor, input.x, input.y, 1);
+    }
 };
