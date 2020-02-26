@@ -154,6 +154,6 @@ class playGame extends Phaser.Scene{
   }
     
     update(){
-      this.physics.moveTo(cursor, input.x, input.y, 1);
+      this.physics.moveTo(cursor, input.x, input.y, 500);
     }
 };
