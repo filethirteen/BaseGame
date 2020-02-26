@@ -80,18 +80,22 @@ class playGame extends Phaser.Scene{
           }
           break;
           
-        default:
-          if (b2.gameObject.y > game.config.height) {
-            this.scene.start("PlayGame");
-          } else {
-            if (b2.gameObject.y > 0) {
-              this.cameras.main.flash(50, 255, 0, 0);
-            }
-          }
+//        default:
+//          if (b2.gameObject.y > game.config.height) {
+//            this.scene.start("PlayGame");
+//          } else {
+//            if (b2.gameObject.y > 0) {
+//              this.cameras.main.flash(50, 255, 0, 0);
+//            }
+//          }
           
       }
     }, this);
   }
+    
+    update(){
+        
+    }
       
   createLevel() {
     this.gameItems = this.add.group();
