@@ -53,12 +53,8 @@ class playGame extends Phaser.Scene{
       frameHeight: 128
     });
   }
-    
-    var input;
-    var cursor;
   
   create() {
-    this.input=this.input;
     this.canSummonHero = true;
     this.matter.world.update30Hz();
     this.matter.world.setBounds(0, -400, game.config.width, game.config.height + 800);
@@ -97,7 +93,7 @@ class playGame extends Phaser.Scene{
     }, this);
   }
   
-    
+    var cursor;
     
   createLevel() {
     this.gameItems = this.add.group();
@@ -129,8 +125,8 @@ class playGame extends Phaser.Scene{
       }
     }
       cursor = this.matter.add.image(0, 0, "items");
-      item.setCircle();
-      item.body.label = HERO;
+      cursor.setCircle();
+      cursor.body.label = HERO;
   }
   
   itemsOverlap(p) {
