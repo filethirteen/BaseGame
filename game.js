@@ -92,9 +92,7 @@ class playGame extends Phaser.Scene{
       }
     }, this);
   }
-  
-    var cursor;
-    
+      
   createLevel() {
     this.gameItems = this.add.group();
     let spawnRectangle = new Phaser.Geom.Rectangle(80, 250, game.config.width - 160, game.config.height - 350);
@@ -124,9 +122,6 @@ class playGame extends Phaser.Scene{
         }
       }
     }
-      cursor = this.matter.add.image(0, 0, "items");
-      cursor.setCircle();
-      cursor.body.label = HERO;
   }
   
   itemsOverlap(p) {
@@ -148,8 +143,4 @@ class playGame extends Phaser.Scene{
       item.body.label = HERO;
     }
   }
-    
-    update(){
-      
-    }
 };
