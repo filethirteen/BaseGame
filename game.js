@@ -53,9 +53,7 @@ class playGame extends Phaser.Scene{
       frameHeight: 128
     });
   }
-    
-    var spacebar;
-  
+      
   create() {
     this.canSummonHero = true;
     this.matter.world.update30Hz();
@@ -63,7 +61,7 @@ class playGame extends Phaser.Scene{
     this.createLevel();
     
     this.input.on("pointerdown", this.releaseHero, this);
-    spacebar = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+    this.input.keyboard.on('keydown-SPACE', this.resetGame, this);
     
     this.matter.world.on("collisionstart", function(e, b1, b2) {
       
@@ -95,13 +93,6 @@ class playGame extends Phaser.Scene{
       }
     }, this);
   }
-    
-    update(){
-        if (Phaser.Input.Keyboard.JustDown(spacebar))
-        {
-            this.scene.start("PlayGame");
-        }
-    }
       
   createLevel() {
     this.gameItems = this.add.group();
@@ -153,4 +144,8 @@ class playGame extends Phaser.Scene{
       item.body.label = HERO;
     }
   }
+    
+    resetGame(){
+        this.scene.start("PlayGame");
+    }
 };
